@@ -3,7 +3,7 @@ defmodule Pxblog.Mixfile do
 
   def project do
     [app: :pxblog,
-     version: "0.4.0",
+     version: "0.55555.0",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -19,7 +19,7 @@ defmodule Pxblog.Mixfile do
   def application do
     [mod: {Pxblog, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+                    :phoenix_ecto, :postgrex, :comeonin, :ex_machina]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,8 @@ defmodule Pxblog.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 2.5.2"}]
+     {:comeonin, "~> 2.5.2"},
+     {:ex_machina, "~> 1.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
