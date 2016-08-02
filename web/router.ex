@@ -18,6 +18,10 @@ defmodule Pxblog.Router do
 
     get "/", PageController, :index
 
+    resources "/posts", PostController, only: [] do
+      resources "/comments", CommentController, only: [:create, :delete, :update]
+    end
+
     resources "/users", UserController do
       resources "/posts", PostController
     end
