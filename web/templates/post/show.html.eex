@@ -1,3 +1,4 @@
+<input type="hidden" id="post-id" value="<%= @post.id %>">
 <h2>Show post</h2>
 
 <ul>
@@ -21,13 +22,17 @@
       "comment.html",
       comment: comment,
       author_or_admin: @conn.assigns[:author_or_admin],
-      conn: @conn,
-      post: @post
+      conn: @conn
     %>
   <% end %>
 </div>
 
-<%= render Pxblog.CommentView, "form.html", changeset: @comment_changeset, action: post_comment_path(@conn, :create, @post) %>
+<%= render Pxblog.CommentView,
+  "form.html",
+  changeset: @comment_changeset,
+  action: post_comment_path(@conn, :create, @post),
+  post: @post
+%>
 
 <%= link "Edit", to: user_post_path(@conn, :edit, @user, @post) %>
 <%= link "Back", to: user_post_path(@conn, :index, @user) %>
